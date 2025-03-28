@@ -1,3 +1,6 @@
+#Design an algorithm to encode a list of strings to a single string. The encoded string is then decoded back to the original list of strings.
+#Please implement encode and decode
+
 # time complexity: O(n)
 # space complexity: O(n + m)
 # since # can be present, we use a number length and a delimter, # for us to read

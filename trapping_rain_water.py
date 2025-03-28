@@ -1,3 +1,7 @@
+#You are given an array non-negative integers height which represent an elevation map. 
+# Each value height[i] represents the height of a bar, which has a width of 1.
+#Return the maximum area of water that can be trapped between the bars.
+
 #Optimal solution using two pointers
 # time complexity O(n)
 # space complexity O(1)

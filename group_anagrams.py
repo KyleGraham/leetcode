@@ -1,3 +1,6 @@
+#Given an array of strings strs, group all anagrams together into sublists. You may return the output in any order.
+#An anagram is a string that contains the exact same characters as another string, but the order of the characters can be different.
+
 #brute force solution using hash maps similar to valid_anagram solution
 #time complexity: O(M * nlog(n)
 # space complexity: O(n * M)

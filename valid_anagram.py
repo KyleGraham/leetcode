@@ -1,3 +1,6 @@
+#Given two strings s and t, return true if the two strings are anagrams of each other, otherwise return false.
+#An anagram is a string that contains the exact same characters as another string, but the order of the characters can be different.
+
 # Hash Map Solution
 # time complexity: O(n + m)
 # space complexity: O(1) since we have at most 26 different characters
