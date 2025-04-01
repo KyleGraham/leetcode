@@ -1,3 +1,4 @@
+#
 # Implement an algorithm to serialize and deserialize a binary tree.
 # Serialization is the process of converting an in-memory structure into a sequence of bits so that it can be 
 # stored or sent across a network to be reconstructed later in another computer environment.
