@@ -42,11 +42,6 @@ class Solution:
 
 
 
-
-
-
-
-
 #less optimal brute force solution
 #because we have to check if the subset is in the result array, adds extra computation vs ensuring no duplicates exist
 
