@@ -22,7 +22,7 @@
 #   [11,5,7,6]]
 # ]
 # Output: 8
-Explanation: The water level must be at least 8 to reach the bottom right square. The path is [0, 1, 2, 4, 8, 7, 6].
+# Explanation: The water level must be at least 8 to reach the bottom right square. The path is [0, 1, 2, 4, 8, 7, 6].
 
 
 #solution using dijkstra's algorithm
