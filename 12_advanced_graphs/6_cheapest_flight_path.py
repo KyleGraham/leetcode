@@ -55,7 +55,22 @@ class Solution:
 
 #initialize a constant INF as infinity
 #initialize an adjacency list as a list of empty lists, the index will be the key basically since its a list
+##initialize a distance list as a list of infinity with len of n
+#loop through the flights and add the destination and price to the source of the adjacency list
 
+#initialize the distance of the source to 0
+#initialize a min heap with the cost as 0, the source as the node and -1 as the stops
+#while the min heap is not empty
+#pop the first element of the min heap (cost, node, stops)
+#check if stops is equal to k or if the distance of the node is less than the cost
+#continue since we don't want to go over k stops or if the distance is less than the cost
+#loop through adj list tiems for the node (neighbor, price)
+#initialize the next cost as the cost + price
+#initialize the next stops as stops + 1
+#check if the distance of the neighbor is greater than the next cost
+#if so, set the distance of the neighbor to the next cost
+#add the neighbor to the min heap with the next cost, neighbor and next stops
+#outside the loop, return -1 since we can't get to the destination
 
 
 
@@ -70,19 +85,17 @@ class Solution:
         dist[src][0] = 0
         minHeap = [(0, src, -1)] # cost, node, stops
         while len(minHeap):
-            p, s, d
-            p, node, d = heapq.heappop(minHeap)
-            if dst == s: return p
-            if d == k or dist[s][d + 1] < p:
+            cst, node, stops = heapq.heappop(minHeap)
+            if dst == node: return cst #exit statement
+            if stops == k or dist[node][stops + 1] < cst:
                 continue
-            for nei, w in adj[s]:
-                nextP = p + w
-                nextD = 1 + d
-                if dist[nei][nextD + 1] > nextP:
-                    dist[nei][nextD + 1] = nextP
-                    heapq.heappush(minHeap, (nextP, nei, nextD))
+            for nei, p in adj[node]:
+                nextCst = cst + p
+                nextStops = 1 + stops
+                if dist[nei][nextStops + 1] > nextCst:
+                    dist[nei][nextStops + 1] = nextCst
+                    heapq.heappush(minHeap, (nextCst, nei, nextStops))
 
         return -1
-
 
 
