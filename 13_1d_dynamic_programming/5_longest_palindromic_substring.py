@@ -13,60 +13,52 @@
 
 
 
-#my solution using 2 pointers
-##time complexity: O(n^2)
-##space complexity: O(1)
+#I think this solution is better
+#time complexity: O(n^2)
+#space complexity: O(1)
+#this solution uses two pointers to check for palindromes
+#it checks for odd and even length palindromes
+#it starts at the middle of the string and expands outwards
+#it checks if the left and right characters are equal
 
-#basically we start in the middle of the string and expand outwards
-#but edge cases like aa or aaaaaaa are handled by the first while loop
-#we check if the left or right are equal to the middle and add them to the temp string, so with repeat characters in the middle
-#we gather all of them before expanding outwards
-
-#check if len(s) is 1, if so return s
 #initialize res as empty string
-#loop through the string starting at 1
-#initialize left and right pointers as i - 1 and i + 1
-#initialize temp as s[i]
-#while the left pointer is greater than or equal to 0 and the character at the left pointer is equal to s[i]
-#or the right pointer is less than or equal to the length of s - 1 and the character at the right pointer is equal to s[i]
-#check if the left pointer is greater than or equal to 0 and the character at the left pointer is equal to s[i]
-# if so, add the character at the left pointer to temp and decrement the left pointer
-#check if the right pointer is less than or equal to the length of s - 1 and the character at the right pointer is equal to s[i]
-# if so, add the character at the right pointer to temp and increment the right pointer
+#initialize resLen as 0
+#loop through the string starting at 0
+#check odd lengths
+#initialize left and right pointers as i and i
+#while loop that checks if the left and right pointer are in bounds and that s[l] == s[r]
+# if they are, check if the length of the palindrome is greater than resLen
+# if it is, set res to the palindrome and resLen to the length of the palindrome
+#setting is basicaly s[l:r+1] since r is inclusive. This sets it from l to r + 1
+#set resLen to the new length
+#decrement left and increment right
+#check even lengths
+#basically does the same thing, but we set the left pointer to i and the right pointer to i + 1
+#exact same while loop
 
-#check if the length of temp is greater than the length of res
-# if so, set res to temp
-#while the left pointer is greater than or equal to 0 and the right pointer is less than or equal to the length of s - 1
-#and the character at the left pointer is equal to the character at the right pointer
-#add the left character to the left side of temp and the right character to the right side of temp
-#check if the length of temp is greater than the length of res
-# if so, set res to temp
-#decrement the left pointer and increment the right pointer
-#return res outside the loop
+#return res
 
 
 class Solution:
     def longestPalindrome(self, s: str) -> str:
-        if len(s) == 1:
-            return s
         res = ""
-        for i in range(1, len(s)):
-            l = i - 1
-            r = i + 1
-            temp = s[i]
-            while l >= 0 and s[l] == s[i] or r <= len(s) - 1 and s[r] == s[i]:
-                if l >= 0 and s[l] == s[i]:
-                    temp = s[l] + temp
-                    l -= 1
-                if r <= len(s) - 1 and s[r] == s[i]:
-                    temp = temp + s[r]
-                    r += 1
-            if len(temp) > len(res):
-                res = temp
-            while l >= 0 and r <= len(s) - 1 and s[l] == s[r]:
-                temp = s[l] + temp + s[r]
-                if len(temp) > len(res):
-                    res = temp
+        resLen = 0
+
+        for i in range(len(s)):
+            #odd length
+            l, r = i, i
+            while l >= 0 and r < len(s) and s[l] == s[r]:
+                if (r - l + 1) > resLen:
+                    res = s[l:r+1]
+                    resLen = r - l + 1
+                l -= 1
+                r += 1
+            #even length
+            l, r = i, i + 1
+            while l >= 0 and r < len(s) and s[l] == s[r]:
+                if (r - l + 1) > resLen:
+                    res = s[l:r+1]
+                    resLen = r - l + 1
                 l -= 1
                 r += 1
         return res
