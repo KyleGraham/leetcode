@@ -44,6 +44,11 @@ class Node:
 
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        #intialize this as None just incase a random pointer is to None
+        #since the random pointer can point anywhere, you have to 
+        #initialize a hash and put all the nodes in the hash
+        #that way when you loop through the nodes again, you can
+        #properly make a copy with access to all the nodes
         oldToCopy = {None:None} # for if cur.random is None
         cur = head
         while cur:
