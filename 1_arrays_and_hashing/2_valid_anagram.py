@@ -4,6 +4,15 @@
 # Hash Map Solution
 # time complexity: O(n + m)
 # space complexity: O(1) since we have at most 26 different characters
+
+#create 2 hash maps, one for each string
+#loop through i to len of s
+#add each character to the hash map of each string
+#increment the value of the character in the hash map
+
+#check that the hash maps are equal
+
+
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
