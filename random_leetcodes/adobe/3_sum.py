@@ -1,5 +1,7 @@
-#Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] where nums[i] + nums[j] + nums[k] == 0, and the indices i, j and k are all distinct.
+#Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] 
+# where nums[i] + nums[j] + nums[k] == 0, and the indices i, j and k are all distinct.
 #The output should not contain any duplicate triplets. You may return the output and the triplets in any order.
+
 
 #basically a for loop with two pointers to do binary search
 # #time complexity: O(n^2)
@@ -51,3 +53,4 @@ class Solution:
                     while nums[l] == nums[l - 1] and l < r:
                         l += 1
         return res
+
