@@ -20,12 +20,6 @@ class Solution:
         hash_s = {}
         hash_t = {}
         for i in range(len(s)):
-            if s[i] in hash_s:
-                hash_s[s[i]] += 1
-            else:
-                hash_s[s[i]] = 1
-            if t[i] in hash_t:
-                hash_t[t[i]] += 1
-            else:
-                hash_t[t[i]] = 1
+            hash_s[s[i]] = 1 + hash_s.get(s[i], 0)
+            hash_t[t[i]] = 1 + hash_t.get(t[i], 0)
         return hash_s == hash_t
