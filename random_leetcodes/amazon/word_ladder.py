@@ -58,7 +58,7 @@
 
 #return 0 if it's never found
 
-#bfs, with for loop to complete each layer before next one starts
+#bfs
 #key in adjacency list is the pattern, value is the word
 #pattern: word[:j] + "*" + word[j + 1 :]
 #base case word == endWord
