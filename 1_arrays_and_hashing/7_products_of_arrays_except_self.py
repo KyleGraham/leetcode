@@ -14,6 +14,7 @@ class Solution:
                     sum *= nums[j]
             returnArr[i] = sum
         return returnArr
+    
 #optimal using prefix and suffix
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
