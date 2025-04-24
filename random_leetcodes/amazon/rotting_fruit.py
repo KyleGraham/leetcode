@@ -56,7 +56,7 @@ class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
         queue = deque()
 
-        # Step 1). build the initial set of rotten oranges
+        # Step 1. build the initial set of rotten oranges
         fresh_oranges = 0
         ROWS, COLS = len(grid), len(grid[0])
         for r in range(ROWS):
