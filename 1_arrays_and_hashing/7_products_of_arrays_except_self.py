@@ -16,6 +16,11 @@ class Solution:
         return returnArr
     
 #optimal using prefix and suffix
+# nums = [1, 2, 3, 4]
+# pref = [1, 2, 6, 24]
+# suff = [24, 24, 12, 4]
+
+#output =[24, 12, 8, 6]
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
       n = len(nums)

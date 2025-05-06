@@ -30,22 +30,29 @@
 # return res
 
 class Solution:
-    def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        #initialize k as half way point of hours for funzies
-        l = 1
-        r = max(piles)
-        res = r
-        while l <= r:
-            k = (r + l) // 2
-            t = 0 #banana eating time
-            #check how long to eat bananas
-            for p in piles:
-                t += math.ceil(p / k) 
-            if t <= h:
-                res = k
-                r = k - 1
-            else:
-                l = k + 1
-        return res
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:  
+        # Initalize the left and right boundaries     
+        left = 1
+        right = max(piles)
         
+        while left < right:
+            # Get the middle index between left and right boundary indexes.
+            # hour_spent stands for the total hour Koko spends.
+            middle = (left + right) // 2            
+            hour_spent = 0
+            
+            # Iterate over the piles and calculate hour_spent.
+            # We increase the hour_spent by ceil(pile / middle)
+            for pile in piles:
+                hour_spent += math.ceil(pile / middle)
+            
+            # Check if middle is a workable speed, and cut the search space by half.
+            if hour_spent <= h:
+                right = middle
+            else:
+                left = middle + 1
+        
+        # Once the left and right boundaries coincide, we find the target value,
+        # that is, the minimum workable eating speed.
+        return right
 

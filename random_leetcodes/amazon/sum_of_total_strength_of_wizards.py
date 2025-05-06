@@ -1,5 +1,18 @@
 
 
+
+#brute force
+class Solution:
+    def totalStrength(self, strength: List[int]) -> int:
+        n = len(strength)
+        res = 0
+        for i in range(n):
+            for j in range(i, n):
+                subArray = strength[i:j+1]
+                res += (min(subArray) * sum(subArray))
+        return res % (10**9 + 7)
+
+
 #solution using prefix sum
 #time complexity: O(n)
 #space complexity: O(n)

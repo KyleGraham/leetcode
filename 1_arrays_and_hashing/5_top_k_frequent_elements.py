@@ -16,10 +16,11 @@ class Solution:
     for num in nums:
       count[num] = 1 + count.get(num, 0)
     
+    #array where index is the frequency value appears and value is the value in an array
     for num, cnt in count.items():
       frequency[cnt].append(num)
     res = []
-    for i in range(len(frequency), 0, -1):
+    for i in range(len(nums), 0, -1):
       for num in frequency[i]:
         res.append(num)
         if len(res) == k:

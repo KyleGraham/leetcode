@@ -1,3 +1,21 @@
+#leetcode solution. One below times out on leetcode. This essentially does the same thing
+
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        longest_streak = 0
+        num_set = set(nums)
+        for num in num_set:
+            if num - 1 not in num_set:
+                current_num = num
+                current_streak = 1
+                while current_num + 1 in num_set:
+                    current_num += 1
+                    current_streak += 1
+                longest_streak = max(longest_streak, current_streak)
+        return longest_streak
+
+
+
 # Given an array of integers nums, return the length of the longest consecutive sequence of elements that can be formed.
 # A consecutive sequence is a sequence of elements in which each element is exactly 1 greater than the previous element. 
 # The elements do not have to be consecutive in the original array.
